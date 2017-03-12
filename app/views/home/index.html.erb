@@ -1,2 +1,10 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<h1>Videos</h1>
+
+<%= form_tag("/", method: "get") do %>
+  <%= select("genre", "genre_name", options_for_select(Genre.all.map { |g| g.name }, @current_genre)) %>
+  <%= submit_tag("Genre") %>
+<% end %>
+
+<% @all_videos.each do |video| %>
+  <li><%= video.title %> (<%= video.genre %>)</li>
+<% end %>
