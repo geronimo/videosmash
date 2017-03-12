@@ -1,2 +1,18 @@
 <div id="previously_viewed_list">
+  <% previously_viewed.each do |view| %>
+    <ul>
+      <div class="video-thumbnail">
+      </div>
+      <li class="video">
+        <div class="col det">
+          <span><strong><%= view.video.title %></strong> (<%= view.video.genre %>)</span>
+          <p class="details">
+            <span>Viewed:</span>
+            <span><%= view.created_at %></span>
+          </p>
+        </div>
+      </li>
+    </ul>
+  <% end %>
 </div>
+

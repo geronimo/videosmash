@@ -26,5 +26,5 @@ class User
   field :current_sign_in_ip, type: String
   field :last_sign_in_ip,    type: String
 
-  has_and_belongs_to_many :videos, inverse_of: nil
+  embeds_many :video_views
 end

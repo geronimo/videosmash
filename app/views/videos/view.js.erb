@@ -1,1 +1,3 @@
-$('#previously_viewed_list').append("<%= @previously_viewed %>")
+$('#previously_viewed_list').replaceWith("<%= j render(partial: 'videos/previously_viewed', locals: {previously_viewed: @previously_viewed}) %>")
+
+$("#genre_form").trigger("submit.rails");
