@@ -28,9 +28,18 @@ GEM
     activesupport (3.2.22.2)
       i18n (~> 0.6, >= 0.6.4)
       multi_json (~> 1.0)
+    addressable (2.5.0)
+      public_suffix (~> 2.0, >= 2.0.2)
     arel (3.0.3)
     bcrypt (3.1.11)
     builder (3.0.4)
+    capybara (2.12.1)
+      addressable
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      xpath (~> 2.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -38,6 +47,24 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
+    cucumber (2.4.0)
+      builder (>= 2.1.2)
+      cucumber-core (~> 1.5.0)
+      cucumber-wire (~> 0.0.1)
+      diff-lcs (>= 1.1.3)
+      gherkin (~> 4.0)
+      multi_json (>= 1.7.5, < 2.0)
+      multi_test (>= 0.1.2)
+    cucumber-core (1.5.0)
+      gherkin (~> 4.0)
+    cucumber-rails (1.4.5)
+      capybara (>= 1.1.2, < 3)
+      cucumber (>= 1.3.8, < 4)
+      mime-types (>= 1.16, < 4)
+      nokogiri (~> 1.5)
+      railties (>= 3, < 5.1)
+    cucumber-wire (0.0.1)
+    database_cleaner (1.5.3)
     devise (3.5.10)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -45,8 +72,15 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    diff-lcs (1.3)
     erubis (2.7.0)
     execjs (2.7.0)
+    factory_girl (4.8.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.8.0)
+      factory_girl (~> 4.8.0)
+      railties (>= 3.0.0)
+    gherkin (4.0.0)
     hike (1.2.3)
     i18n (0.8.1)
     journey (1.0.4)
@@ -58,16 +92,26 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.25.1)
+    mini_portile2 (2.1.0)
     mongoid (3.1.7)
       activemodel (~> 3.2)
       moped (~> 1.4)
       origin (~> 1.0)
       tzinfo (~> 0.3.29)
+    mongoid-rspec (1.13.0)
+      mongoid (~> 3.1)
+      rake
+      rspec (~> 3.1)
     moped (1.5.3)
     multi_json (1.12.1)
+    multi_test (0.1.2)
+    nokogiri (1.7.0.1)
+      mini_portile2 (~> 2.1.0)
     origin (1.1.0)
     orm_adapter (0.5.0)
     polyglot (0.3.5)
+    power_assert (1.0.1)
+    public_suffix (2.0.5)
     rack (1.4.7)
     rack-cache (1.7.0)
       rack (>= 0.4)
@@ -95,6 +139,27 @@ GEM
       json (~> 1.4)
     responders (1.1.2)
       railties (>= 3.2, < 4.2)
+    rspec (3.5.0)
+      rspec-core (~> 3.5.0)
+      rspec-expectations (~> 3.5.0)
+      rspec-mocks (~> 3.5.0)
+    rspec-core (3.5.4)
+      rspec-support (~> 3.5.0)
+    rspec-expectations (3.5.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.5.0)
+    rspec-mocks (3.5.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.5.0)
+    rspec-rails (3.5.2)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      railties (>= 3.0)
+      rspec-core (~> 3.5.0)
+      rspec-expectations (~> 3.5.0)
+      rspec-mocks (~> 3.5.0)
+      rspec-support (~> 3.5.0)
+    rspec-support (3.5.0)
     sass (3.4.23)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -105,6 +170,8 @@ GEM
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
+    test-unit (3.2.3)
+      power_assert
     thor (0.19.4)
     thread_safe (0.3.6)
     tilt (1.4.1)
@@ -116,17 +183,26 @@ GEM
       execjs (>= 0.3.0, < 3)
     warden (1.2.7)
       rack (>= 1.0)
+    xpath (2.0.0)
+      nokogiri (~> 1.3)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  capybara
   coffee-rails (~> 3.2.1)
+  cucumber-rails
+  database_cleaner
   devise
+  factory_girl_rails
   jquery-rails
   mongoid
+  mongoid-rspec
   rails (= 3.2.22.2)
+  rspec-rails
   sass-rails (~> 3.2.3)
+  test-unit
   uglifier (>= 1.0.3)
 
 BUNDLED WITH

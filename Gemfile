@@ -24,6 +24,19 @@ gem 'jquery-rails'
 gem 'mongoid'
 gem 'devise'
 
+group :test do
+  gem 'database_cleaner'
+  gem 'mongoid-rspec'
+  gem 'cucumber-rails'
+  gem 'capybara'
+  gem 'test-unit'
+end
+
+group :test, :development do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+end
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
