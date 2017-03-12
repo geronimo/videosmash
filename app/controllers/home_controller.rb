@@ -9,5 +9,10 @@ class HomeController < ApplicationController
     end
 
     @all_videos = Video.where(genre: @current_genre)
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 end
