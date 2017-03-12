@@ -1,1 +1,3 @@
 $('#current_video').replaceWith("<%= j render(partial: 'videos/current_video', locals: {current_video: @current_video}) %>");
+
+$('#previously_viewed_list').replaceWith("<%= j render(partial: 'videos/previously_viewed', locals: {previously_viewed: @previously_viewed}) %>")

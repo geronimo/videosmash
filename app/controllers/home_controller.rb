@@ -9,9 +9,12 @@ class HomeController < ApplicationController
       @current_genre = @genres.sample.name
     end
 
-    @previously_viewed = current_user.video_views.order_by(created_at: -1)
+    @previously_viewed = current_user.video_views.where(genre: @current_genre).order_by(created_at: -1)
 
     @current_video = Video.where(genre: @current_genre).sample
+    while current_user.video_views.where(video: @current_video).exists?
+      @current_video = Video.where(genre: @current_genre).sample
+    end
 
     respond_to do |format|
       format.html
