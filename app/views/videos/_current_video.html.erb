@@ -1,0 +1,6 @@
+<div id="current_video">
+  <%= form_for current_video, url: view_video_path(current_video), method: :post, remote: true do |f| %>
+    <li><%= current_video.title %> (<%= current_video.genre %>)</li>
+    <%= f.submit "Next New Video" %>
+  <% end %>
+</div>

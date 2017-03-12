@@ -1,6 +1,13 @@
 <%# add navigation links to this file %>
 
 <% if user_signed_in? %>
+  <% if @genres %>
+    <li>
+      <%= form_tag("/", method: "get", remote: true, id: "genre_form", style: "display: inline;") do %>
+        <%= select("genre", "genre_name", options_for_select(@genres.map { |g| g.name }, @current_genre)) %>
+      <% end %>
+    </li>
+  <% end %>
   <li>
   <%= link_to('Logout', destroy_user_session_path, :method=>'delete') %>
   </li>

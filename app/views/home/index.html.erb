@@ -1,11 +1,6 @@
 <h1>Videos</h1>
 
-<%= form_tag("/", method: "get", remote: true, id: "genreForm") do %>
-  <%= select("genre", "genre_name", options_for_select(Genre.all.map { |g| g.name }, @current_genre)) %>
-<% end %>
 
-<div id="videoList">
-  <% @all_videos.each do |video| %>
-    <li><%= video.title %> (<%= video.genre %>)</li>
-  <% end %>
-</div>
+<%= render partial: 'videos/current_video', locals: {current_video: @current_video}  %>
+
+<%= render partial: 'videos/previously_viewed', locals: {previously_viewed: @previously_viewed}  %>

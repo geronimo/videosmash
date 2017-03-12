@@ -3,6 +3,11 @@ Videosmash::Application.routes.draw do
 
   devise_for :users
 
+  resources :videos, only: [] do
+    member do
+      post :view
+    end
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
