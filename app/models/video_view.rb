@@ -5,6 +5,6 @@ class VideoView
   field :title, type: String
   field :genre, type: String
 
-  belongs_to :video
+  belongs_to :video, inverse_of: nil
   embedded_in :user
 end

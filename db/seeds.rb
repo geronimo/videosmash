@@ -12,7 +12,7 @@ genre_names = %w{Action Adventure Animation Biography Comedy Crime Documentary D
 genre_names.each do |genre_name|
   genre = Genre.create!(name: genre_name)
 
-  100.times do |index|
+  10.times do |index|
     Video.create!(genre: genre_name, title: "Video #{index}")
   end
 end

@@ -1,6 +1,6 @@
 <div id="current_video" class="app-cont-thin">
   <%= form_for current_video, url: view_video_path(current_video), method: :post, remote: true do |f| %>
-    <li><%= current_video.title %> (<%= current_video.genre %>)</li>
+    <li id="current_video_name"><%= current_video.title %> (<%= current_video.genre %>)</li>
     <%= f.submit "Next New Video", class: "submit-button" %>
   <% end %>
 </div>

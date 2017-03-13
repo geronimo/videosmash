@@ -1,4 +1,9 @@
 <div id="previously_viewed_list">
+  <% if previously_viewed.count == 0 %>
+    <p>
+    <span>There aren't previously viewed videos</span>
+    </p>
+  <% end %>
   <% previously_viewed.each do |view| %>
     <ul>
       <div class="video-thumbnail">

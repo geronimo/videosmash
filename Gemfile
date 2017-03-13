@@ -27,6 +27,7 @@ gem 'devise'
 group :test do
   gem 'database_cleaner'
   gem 'mongoid-rspec'
+  gem 'selenium-webdriver', '~> 2.53.4'
   gem 'cucumber-rails', require: false
   gem 'capybara'
   gem 'test-unit'
