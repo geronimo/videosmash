@@ -20,3 +20,10 @@ Feature: View Next Video
     Given I sucessfully logged in as a User
     And I am on the home page
     Then I should see no videos on the Previously Viewed list
+
+  @javascript
+  Scenario: User views all the videos for a genre
+    Given I sucessfully logged in as a User
+    And I am on the home page
+    When I view all the videos for a genre
+    Then I should see a message saying there are no more videos

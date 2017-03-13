@@ -57,3 +57,19 @@ Then(/^I should see no videos on the Previously Viewed list$/) do
     expect(page).to have_content(message)
   end
 end
+
+When(/^I view all the videos for a genre$/) do
+  genre = 'Fantasy'
+  select genre, from: 'genre_genre_name'
+  Video.where(genre: genre).each do |video|
+    @user.video_views.create!(title: video.title, genre: video.genre, video: video)
+  end
+end
+
+Then(/^I should see a message saying there are no more videos$/) do
+  click_button "Next New Video"
+  within '#current_video' do
+    message = "We ran out of new videos for this category :("
+    expect(page).to have_content(message)
+  end
+end

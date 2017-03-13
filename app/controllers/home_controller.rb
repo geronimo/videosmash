@@ -15,12 +15,8 @@ class HomeController < ApplicationController
       end
     end
 
-    @previously_viewed = current_user.video_views.where(genre: @current_genre).order_by(created_at: -1)
-
-    @current_video = Video.where(genre: @current_genre).sample
-    while current_user.video_views.where(video: @current_video).exists?
-      @current_video = Video.where(genre: @current_genre).sample
-    end
+    @previously_viewed = current_user.viewed_by @current_genre
+    @current_video = current_user.next_video_by @current_genre
 
     respond_to do |format|
       format.html

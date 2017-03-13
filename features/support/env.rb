@@ -57,5 +57,5 @@ end
 Cucumber::Rails::Database.javascript_strategy = :truncation
 
 Before do
-  load "#{Rails.root}/db/seeds.rb"
+  load "#{Rails.root}/db/cucumber_seeds.rb"
 end

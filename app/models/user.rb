@@ -27,4 +27,13 @@ class User
   field :last_sign_in_ip,    type: String
 
   embeds_many :video_views
+
+  def next_video_by genre
+    viewed_titles = self.video_views.where(genre: genre).map(&:title)
+    return Video.where(genre: genre).not_in(title: viewed_titles).sample
+  end
+
+  def viewed_by genre
+    self.video_views.where(genre: genre).order_by(created_at: -1)
+  end
 end
