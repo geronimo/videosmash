@@ -5,8 +5,14 @@ class HomeController < ApplicationController
     @genres = Genre.all
     if params[:genre]
       @current_genre = params[:genre][:genre_name]
+      cookies[:current_genre] = @current_genre
     else
-      @current_genre = @genres.sample.name
+      if cookies[:current_genre]
+        @current_genre = cookies[:current_genre]
+      else
+        @current_genre = @genres.sample.name
+        cookies[:current_genre] = @current_genre
+      end
     end
 
     @previously_viewed = current_user.video_views.where(genre: @current_genre).order_by(created_at: -1)

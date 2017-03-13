@@ -1,6 +1,10 @@
-<div id="current_video" class="app-cont-thin">
-  <%= form_for current_video, url: view_video_path(current_video), method: :post, remote: true do |f| %>
-    <li id="current_video_name"><%= current_video.title %> (<%= current_video.genre %>)</li>
-    <%= f.submit "Next New Video", class: "submit-button" %>
-  <% end %>
+<div id="current_video" class="app-cont-thin" >
+  <div class="video_placeholder" style="background-color: #<%= current_video.colour %>;">
+  </div>
+  <div class='video_info'>
+    <%= form_for current_video, url: view_video_path(current_video), method: :post, remote: true do |f| %>
+      <li id="current_video_name"><%= current_video.title %> (<%= current_video.genre %>)</li>
+      <%= f.submit "Next New Video", class: "submit-button centered" %>
+    <% end %>
+  </div>
 </div>

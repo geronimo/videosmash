@@ -71,3 +71,15 @@ a {
   padding-top: 10px;
   border-radius: 3px;
 }
+
+.video_placeholder {
+  width: 90%;
+  height: 220px;
+  margin: 0 auto;
+}
+
+.video_info {
+  width: 90%;
+  height: 50px;
+  margin: 0 auto;
+}
